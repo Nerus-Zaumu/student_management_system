@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane prefHeight="604.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="school.studentmanagementsystem.studentDashboardController">
+   <children>
+      <Pane fx:id="topNav" layoutY="-3.0" prefHeight="46.0" prefWidth="843.0" stylesheets="@studentDashboardStyles.css">
+         <children>
+            <Label layoutX="273.0" layoutY="6.0" text="Highter Technical Cycle" />
+         </children></Pane>
+      <Pane fx:id="sideNav" layoutY="43.0" prefHeight="614.0" prefWidth="200.0" stylesheets="@studentDashboardStyles.css">
+         <children>
+            <Label layoutX="34.0" layoutY="117.0" text="Courses" />
+            <Label layoutX="9.0" layoutY="174.0" text="Assignment" />
+            <Label layoutX="27.0" layoutY="242.0" text="Calendar" />
+            <Label layoutX="26.0" layoutY="322.0" text="Accounts" />
+            <Label layoutX="34.0" layoutY="394.0" text="Settings" />
+            <Label layoutX="45.0" layoutY="457.0" text="logout" />
+            <Label layoutX="49.0" layoutY="61.0" text="Home" />
+            <Label layoutX="24.0" layoutY="509.0" text="Welcome" />
+            <Label layoutX="2.0" layoutY="554.0" text="Student name" />
+         </children>
+      </Pane>
+      <Pane fx:id="mainTop" layoutX="219.0" layoutY="58.0" prefHeight="131.0" prefWidth="602.0" styleClass="sub_items" stylesheets="@studentDashboardStyles.css">
+         <children>
+            <Label layoutX="14.0" layoutY="26.0" styleClass="main" stylesheets="@studentDashboardStyles.css" text="Current grade" />
+            <Label layoutX="141.0" layoutY="27.0" styleClass="main" stylesheets="@studentDashboardStyles.css" text="Assignments done" />
+            <Label layoutX="301.0" layoutY="27.0" styleClass="main" stylesheets="@studentDashboardStyles.css" text="Assignments left" />
+            <Label layoutX="447.0" layoutY="27.0" styleClass="main" stylesheets="@studentDashboardStyles.css" text="Days remaining" />
+            <Label layoutX="33.0" layoutY="58.0" text="A+" />
+            <Label layoutX="204.0" layoutY="58.0" text="17" />
+            <Label layoutX="341.0" layoutY="61.0" text="69" />
+            <Label layoutX="499.0" layoutY="58.0" text="13" />
+         </children>
+      </Pane>
+      <Pane fx:id="mainTop1" layoutX="225.0" layoutY="208.0" prefHeight="219.0" prefWidth="210.0" styleClass="sub_items" stylesheets="@studentDashboardStyles.css">
+         <children>
+            <LineChart layoutX="3.0" layoutY="226.0" prefHeight="165.0" prefWidth="424.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </LineChart>
+            <Label layoutX="23.0" layoutY="14.0" prefHeight="29.0" prefWidth="165.0" styleClass="main" stylesheets="@studentDashboardStyles.css" text="Course milestones" />
+            <Label layoutX="20.0" layoutY="63.0" styleClass="course-milestones" text="Dec" />
+            <Label layoutX="31.0" layoutY="80.0" styleClass="course-milestones" text="5" />
+            <Label layoutX="10.0" layoutY="45.0" text="." />
+            <Label layoutX="25.0" layoutY="122.0" styleClass="course-milestones" text="Jan" />
+            <Label layoutX="26.0" layoutY="140.0" prefHeight="21.0" prefWidth="28.0" styleClass="course-milestones" text="23" />
+            <Label layoutX="10.0" layoutY="105.0" text="." />
+            <Label layoutX="6.0" layoutY="158.0" text="." />
+            <Label layoutX="20.0" layoutY="175.0" styleClass="course-milestones" text="June" />
+            <Label layoutX="21.0" layoutY="195.0" styleClass="course-milestones" text="13" />
+            <Label layoutX="62.0" layoutY="64.0" styleClass="info" text="Complete digital " />
+            <Label layoutX="62.0" layoutY="81.0" styleClass="info" text="electronics work" />
+            <Label layoutX="59.0" layoutY="122.0" styleClass="info" text="Do not forget " />
+            <Label layoutX="59.0" layoutY="139.0" styleClass="info" text="analog electron" />
+            <Label layoutX="65.0" layoutY="177.0" styleClass="info" text="object oriented" />
+            <Label layoutX="65.0" layoutY="194.0" styleClass="info" text="modelling on " />
+         </children>
+      </Pane>
+      <Pane fx:id="mainTop11" layoutX="441.0" layoutY="208.0" prefHeight="219.0" prefWidth="216.0" styleClass="sub_items" stylesheets="@studentDashboardStyles.css">
+         <children>
+            <PieChart layoutX="8.0" layoutY="39.0" prefHeight="180.0" prefWidth="200.0" />
+            <Label layoutX="12.0" layoutY="14.0" styleClass="main" stylesheets="@studentDashboardStyles.css" text="Current course progress" />
+         </children>
+      </Pane>
+      <Pane fx:id="mainTop111" layoutX="664.0" layoutY="208.0" prefHeight="380.0" prefWidth="165.0" styleClass="sub_items" stylesheets="@studentDashboardStyles.css">
+         <children>
+            <Label layoutX="15.0" layoutY="15.0" prefHeight="29.0" prefWidth="165.0" styleClass="main" stylesheets="@studentDashboardStyles.css" text="Notifications" />
+            <Label layoutX="-1.0" layoutY="79.0" minWidth="-Infinity" prefHeight="29.0" prefWidth="165.0" styleClass="info" text="All students of school" />
+            <Label layoutX="9.0" layoutY="191.0" minWidth="-Infinity" prefHeight="29.0" prefWidth="165.0" styleClass="info" text="should meet the " />
+            <Label layoutY="124.0" minWidth="-Infinity" prefHeight="29.0" prefWidth="165.0" styleClass="info" text="Dean this evening" />
+            <Label layoutX="9.0" layoutY="294.0" minWidth="-Infinity" prefHeight="29.0" prefWidth="165.0" styleClass="info" text="The dean lost his " />
+            <Label layoutX="10.0" layoutY="315.0" minWidth="-Infinity" prefHeight="29.0" prefWidth="165.0" styleClass="info" text="should meet the " />
+            <Label layoutX="9.0" layoutY="337.0" minWidth="-Infinity" prefHeight="29.0" prefWidth="165.0" styleClass="info" text="Dean this evening" />
+            <Label layoutX="-1.0" layoutY="176.0" minWidth="-Infinity" prefHeight="29.0" prefWidth="165.0" styleClass="info" text="Everyone should b" />
+            <Label layoutY="101.0" minWidth="-Infinity" prefHeight="29.0" prefWidth="165.0" styleClass="info" text="should meet the " />
+            <Label layoutX="10.0" layoutY="215.0" minWidth="-Infinity" prefHeight="29.0" prefWidth="165.0" styleClass="info" text="Dean this evening" />
+         </children></Pane>
+   </children>
+</AnchorPane>
