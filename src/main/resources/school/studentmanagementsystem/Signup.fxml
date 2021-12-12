@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.*?>
+<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="school.studentmanagementsystem.studentRegistrationController">
+   <AnchorPane prefHeight="519.0" prefWidth="600.0" styleClass="background" stylesheets="@SignupStyles.css">
+      <TextField layoutX="187.0" layoutY="96.0" prefHeight="44.0" prefWidth="306.0">
+         <opaqueInsets>
+            <Insets/>
+         </opaqueInsets>
+      </TextField>
+      <TextField layoutX="187.0" layoutY="173.0" prefHeight="44.0" prefWidth="306.0">
+         <opaqueInsets>
+            <Insets/>
+         </opaqueInsets>
+      </TextField>
+      <PasswordField layoutX="187.0" layoutY="252.0" prefHeight="44.0" prefWidth="306.0"/>
+      <PasswordField layoutX="187.0" layoutY="330.0" prefHeight="44.0" prefWidth="306.0"/>
+      <Button layoutX="279.0" layoutY="393.0" mnemonicParsing="false" onAction="#SwitchToLogin" prefHeight="48.0"
+              prefWidth="123.0" styleClass="button-signup" text="Signup"/>
+      <Label layoutX="217.0" layoutY="37.0" text="Signup Here">
+         <font>
+            <Font size="20.0"/>
+         </font>
+      </Label>
+      <Label layoutX="54.0" layoutY="106.0" text="Matricule">
+         <font>
+            <Font size="20.0"/>
+         </font>
+      </Label>
+      <Label layoutX="91.0" layoutY="183.0" text="Email">
+         <font>
+            <Font size="20.0"/>
+         </font>
+      </Label>
+      <Label layoutX="53.0" layoutY="262.0" text="Password">
+         <font>
+            <Font size="20.0"/>
+         </font>
+      </Label>
+      <Label layoutX="68.0" layoutY="330.0" text="Confirm">
+         <font>
+            <Font size="20.0"/>
+         </font>
+      </Label>
+      <Label layoutX="60.0" layoutY="352.0" text="Password">
+         <font>
+            <Font size="20.0"/>
+         </font>
+      </Label>
+      <Button layoutX="147.0" layoutY="458.0" mnemonicParsing="false" onAction="#SwitchToRegistration"
+              prefHeight="25.0" prefWidth="178.0" styleClass="button-switch-scene" text="Switch to registration"/>
+      <Button layoutX="361.0" layoutY="458.0" mnemonicParsing="false" onAction="#SwitchToLogin" prefHeight="25.0"
+              prefWidth="178.0" styleClass="button-switch-scene" text="Switch to login"/>
+   </AnchorPane>
+</VBox>

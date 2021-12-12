@@ -1,0 +1,15 @@
+.label{
+    -fx-text-fill: white;
+    -fx-font-family: "Courier 10 Pitch";
+}
+.button-login{
+    -fx-background-color: white;
+    -fx-text-fill: blue;
+}
+
+.background,
+.button-switch-scene{
+    -fx-background-color: blue;
+    -fx-border-width: 0;
+    -fx-text-fill: white;
+}

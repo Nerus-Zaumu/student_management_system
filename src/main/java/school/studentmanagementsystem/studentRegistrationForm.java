@@ -12,7 +12,6 @@ public class studentRegistrationForm extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(studentRegistrationForm.class.getResource("studentRegistration-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        scene.getStylesheets().add("studentRegistrationStyles.css");
         stage.setTitle("Registration Form");
         stage.setResizable(false);
         stage.setScene(scene);
