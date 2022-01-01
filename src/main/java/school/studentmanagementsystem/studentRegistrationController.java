@@ -11,8 +11,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.CheckBoxListCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import org.w3c.dom.events.MouseEvent;
 
 
 import java.io.IOException;
@@ -70,7 +72,7 @@ public class studentRegistrationController  {
     @FXML
     private Label type2_id;
     @FXML
-    private TextField f_name_id;
+    private TextField f_name_id, matricule_id, password1_id, password2_id, email2_id;
     @FXML
     private TextField l_name_id;
     @FXML
@@ -113,7 +115,17 @@ public class studentRegistrationController  {
         }
         return u;
     }
+    public void switch_class() throws IOException {
+        System.out.println("I am cliked");
 
+
+        FXMLLoader fxmlLoader = new FXMLLoader(studentRegistrationForm.class.getResource("productsearch.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("Registration Form");
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     //
     public void change() {
@@ -164,20 +176,71 @@ public class studentRegistrationController  {
         stage.setScene(scene);
         stage.show();
     }
+    public boolean testValidation(String type){
+        Alert u = new Alert(Alert.AlertType.NONE);
+        String userText = email_id.getText();
+        String pwdText = password_id.getText();
+        boolean failure = true;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3308/institution_database","root","willywillywils");
+            PreparedStatement pst = con.prepareStatement("select * from users");
+            ResultSet rs = pst.executeQuery();
 
+
+            while(rs.next() && failure) {
+                System.out.println(rs.getString("email"));
+
+                String name=rs.getString("email");
+                String ppd=rs.getString("passwords");
+                String typ=rs.getString("typ");
+                System.out.println(name +" "+  ppd +" "+typ + "     " + userText+" "+type +" "+pwdText+"\n");
+
+                if(name.equals(userText)&&pwdText.equals(ppd)&&type.equals(typ)) {
+                    failure = false;
+                    u.setAlertType(Alert.AlertType.CONFIRMATION);
+                    u.setContentText("Successful Login");
+                    u.show();
+                }
+                else {
+                    if(name.equals(userText)) {
+                        u.setContentText("Failure");
+                        u.show();
+                    }
+
+                }
+            }
+
+        }catch(Exception ee) {
+            System.out.println("soo soo bad");
+            System.out.println(ee);
+        }
+        return failure;
+    }
     public void SwitchToStudentDashboard(ActionEvent event) throws IOException {
+        boolean success;
         String name = "studentDashboard-view.fxml";
+        String type = "Stud";
         if(get_type()==1){
             name = "AdminDashboard.fxml";
+            type = "Admin";
         }
+        System.out.println(type);
+        success = !testValidation(type);
+        if(success){
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(name)));
 
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        }
+        else{
+            System.out.println("couldn't get in");
+        }
 //        FXMLLoader fxmlLoader = new FXMLLoader(studentRegistrationForm.class.getResource("studentDashboard-view.fxml"));
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(name)));
 
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
 
     }
 
@@ -218,6 +281,7 @@ public class studentRegistrationController  {
             System.out.println("how are you today");
             PreparedStatement insert = con_student.prepareStatement(addStAcc);
 
+            int special_code = 0000;
             insert.setString(1,fi_name);
             insert.setString(2, last_name);
             insert.setString(3, place);
@@ -234,8 +298,22 @@ public class studentRegistrationController  {
             insert.setString(14, f_address);
 
             int uuuu = insert.executeUpdate();
+
+            PreparedStatement get_stu_id = con_student.prepareStatement("SELECT * from student");
+            ResultSet studs = get_stu_id.executeQuery();
+            boolean found = false;
+            while(studs.next() && !found){
+                String firsName = studs.getString("f_name");
+                String secondName = studs.getString("l_name");
+                if(firsName.equals(fi_name) && secondName.equals(last_name)){
+                    special_code = studs.getInt("stu_id");
+                }
+
+
+            }
+
             a.setAlertType(Alert.AlertType.CONFIRMATION);
-            a.setContentText("Successfull Registration");
+            a.setContentText("Successfull Registration" + special_code);
             a.show();
             System.out.println("successfll registration");
 
@@ -247,5 +325,23 @@ public class studentRegistrationController  {
 
 
     }
+
+    public void View_registered_students(ActionEvent event) throws IOException {
+
+
+
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("productsearch.fxml")));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+       // FXMLLoader fxmlLoader = new FXMLLoader(studentRegistrationForm.class.getResource("productsearch.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void sign_up(){
+
+    }
+
+
 
 }

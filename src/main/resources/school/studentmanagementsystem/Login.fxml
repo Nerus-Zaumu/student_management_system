@@ -15,8 +15,8 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <TextField layoutX="113.0" layoutY="110.0" prefHeight="47.0" prefWidth="288.0" />
-      <PasswordField layoutX="113.0" layoutY="201.0" prefHeight="47.0" prefWidth="288.0" />
+      <TextField fx:id="email_id" layoutX="113.0" layoutY="110.0" prefHeight="47.0" prefWidth="288.0" />
+      <PasswordField fx:id="password_id" layoutX="113.0" layoutY="201.0" prefHeight="47.0" prefWidth="288.0" />
       <Button layoutX="207.0" layoutY="258.0" mnemonicParsing="false" onAction="#SwitchToStudentDashboard" prefHeight="47.0" prefWidth="101.0" styleClass="button-login" text="Login" />
       <Button layoutX="107.0" layoutY="331.0" mnemonicParsing="false" onAction="#SwitchToSignup" prefHeight="25.0" prefWidth="138.0" styleClass="button-switch-scene" text="Switch to signup" />
       <Button layoutX="268.0" layoutY="331.0" mnemonicParsing="false" onAction="#SwitchToRegistration" prefHeight="25.0" prefWidth="174.0" styleClass="button-switch-scene" text="Switch to Registration" />
