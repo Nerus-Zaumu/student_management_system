@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="751.0" prefWidth="741.0" styleClass="background"
+            stylesheets="@LoginStyles.css" xmlns="http://javafx.com/javafx/17"
+            fx:controller="school.studentmanagementsystem.ProductSearchController">
+   <children>
+      <Pane prefHeight="757.0" prefWidth="384.0" styleClass="background" stylesheets="@LoginStyles.css">
+         <effect>
+            <DropShadow/>
+         </effect>
+         <children>
+            <Label layoutX="116.0" layoutY="52.0" text="Generate Report">
+               <font>
+                  <Font size="20.0"/>
+               </font>
+            </Label>
+            <Label layoutX="58.0" layoutY="222.0" text="Cycle">
+               <font>
+                  <Font size="20.0"/>
+               </font>
+            </Label>
+            <Label layoutX="24.0" layoutY="291.0" text="Department">
+               <font>
+                  <Font size="20.0"/>
+               </font>
+            </Label>
+            <Label layoutX="59.0" layoutY="359.0" text="Class">
+               <font>
+                  <Font size="20.0"/>
+               </font>
+            </Label>
+            <Label layoutX="60.0" layoutY="428.0" text="Sex">
+               <font>
+                  <Font size="20.0"/>
+               </font>
+            </Label>
+            <ComboBox layoutX="179.0" layoutY="217.0" prefHeight="36.0" prefWidth="167.0" promptText="Choose cycle"
+                      styleClass="button-login" stylesheets="@LoginStyles.css"/>
+            <ComboBox layoutX="179.0" layoutY="423.0" prefHeight="36.0" prefWidth="167.0" promptText="choose sex"
+                      styleClass="button-login" stylesheets="@LoginStyles.css"/>
+            <ComboBox layoutX="179.0" layoutY="353.0" prefHeight="36.0" prefWidth="167.0" promptText="choose class"
+                      styleClass="button-login" stylesheets="@LoginStyles.css"/>
+            <ComboBox layoutX="179.0" layoutY="285.0" prefHeight="36.0" prefWidth="167.0" promptText="choose department"
+                      styleClass="button-login" stylesheets="@LoginStyles.css"/>
+            <Button layoutX="114.0" layoutY="522.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="130.0"
+                    styleClass="button-login" stylesheets="@LoginStyles.css" text="Generate"/>
+         </children>
+      </Pane>
+      <Pane layoutX="386.0" prefHeight="749.0" prefWidth="354.0" styleClass="background" stylesheets="@LoginStyles.css">
+         <effect>
+            <DropShadow/>
+         </effect>
+         <children>
+            <Label layoutX="138.0" layoutY="52.0" text="Reports">
+               <font>
+                  <Font size="20.0"/>
+               </font>
+            </Label>
+            <Label layoutX="18.0" layoutY="223.0" prefHeight="25.0" prefWidth="329.0"
+                   text="The generated reports will appear here as files">
+               <font>
+                  <Font size="12.0"/>
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+   <effect>
+      <Blend/>
+   </effect>
+</AnchorPane>
