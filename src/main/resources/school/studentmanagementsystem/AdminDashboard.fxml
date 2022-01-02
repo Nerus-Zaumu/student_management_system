@@ -39,48 +39,35 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Pane layoutX="53.0" layoutY="136.0" prefHeight="153.0" prefWidth="153.0" styleClass="card">
+                  <Pane layoutX="53.0" layoutY="166.0" prefHeight="153.0" prefWidth="153.0" styleClass="card">
                      <children>
-                        <Label layoutX="27.0" layoutY="68.0" onMouseClicked="#switch_class" text="Student Admission" />
-                        <Button layoutX="51.0" layoutY="36.0" mnemonicParsing="false" onAction="#View_registered_students" styleClass="sub_items" stylesheets="@studentDashboardStyles.css" text="Verify" />
+                        <Label layoutX="27.0" layoutY="68.0" onMouseClicked="#switch_class" text="Student Admission"/>
+                        <Button layoutX="51.0" layoutY="36.0" mnemonicParsing="false"
+                                onAction="#View_registered_students" styleClass="sub_items"
+                                stylesheets="@studentDashboardStyles.css" text="Verify"/>
                      </children>
                   </Pane>
-                  <Pane layoutX="53.0" layoutY="302.0" prefHeight="153.0" prefWidth="153.0" styleClass="card">
+                  <Pane layoutX="53.0" layoutY="382.0" prefHeight="153.0" prefWidth="153.0" styleClass="card">
                      <children>
-                        <Label layoutX="55.0" layoutY="69.0" styleClass="card-label" text="Cycles" />
+                        <Label layoutX="55.0" layoutY="69.0" styleClass="card-label" text="Cycles"/>
                      </children>
                   </Pane>
-                  <Pane layoutX="53.0" layoutY="463.0" prefHeight="155.0" prefWidth="153.0" styleClass="card">
+                  <Pane layoutX="526.0" layoutY="383.0" prefHeight="155.0" prefWidth="153.0" styleClass="card">
                      <children>
-                        <Label layoutX="36.0" layoutY="70.0" styleClass="card-label" text="Notifications" />
+                        <Label layoutX="18.0" layoutY="70.0" styleClass="card-label" text="Send Notification"/>
                      </children>
                   </Pane>
-                  <Pane layoutX="291.0" layoutY="138.0" prefHeight="153.0" prefWidth="153.0" styleClass="card">
+                  <Pane layoutX="291.0" layoutY="168.0" prefHeight="153.0" prefWidth="153.0" styleClass="card">
                      <children>
-                        <Label layoutX="7.0" layoutY="59.0" styleClass="card-label" text="Student distribution" />
+                        <Label layoutX="7.0" layoutY="59.0" styleClass="card-label" text="Student distribution"/>
                      </children>
                   </Pane>
-                  <Pane layoutX="291.0" layoutY="304.0" prefHeight="153.0" prefWidth="153.0" styleClass="card">
+                  <Pane layoutX="291.0" layoutY="384.0" prefHeight="153.0" prefWidth="153.0" styleClass="card">
                      <children>
-                        <Label layoutX="31.0" layoutY="69.0" styleClass="card-label" text="Crime records" />
+                        <Label layoutX="31.0" layoutY="69.0" styleClass="card-label" text="Crime records"/>
                      </children>
                   </Pane>
-                  <Pane layoutX="291.0" layoutY="465.0" prefHeight="155.0" prefWidth="153.0" styleClass="card">
-                     <children>
-                        <Label layoutX="37.0" layoutY="69.0" styleClass="card-label" text="Exam results" />
-                     </children>
-                  </Pane>
-                  <Pane layoutX="526.0" layoutY="138.0" prefHeight="153.0" prefWidth="153.0" styleClass="card">
-                     <children>
-                        <Label layoutX="20.0" layoutY="69.0" styleClass="card-label" text="Student statistics" />
-                     </children>
-                  </Pane>
-                  <Pane layoutX="526.0" layoutY="304.0" prefHeight="153.0" prefWidth="153.0" styleClass="card">
-                     <children>
-                        <Label layoutX="15.0" layoutY="69.0" styleClass="card-label" text="Course completion" />
-                     </children>
-                  </Pane>
-                  <Pane layoutX="526.0" layoutY="465.0" prefHeight="155.0" prefWidth="153.0" styleClass="card">
+                  <Pane layoutX="526.0" layoutY="167.0" prefHeight="155.0" prefWidth="153.0" styleClass="card">
                      <children>
                         <Label layoutX="39.0" layoutY="69.0" styleClass="card-label" text="Reports"/>
                      </children>
