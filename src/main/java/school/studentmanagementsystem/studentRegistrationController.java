@@ -184,7 +184,7 @@ public class studentRegistrationController  {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3308/institution_database","root","willywillywils");
-            PreparedStatement pst = con.prepareStatement("select * from users");
+            PreparedStatement pst = con.prepareStatement("select * from users where email is not null");
             ResultSet rs = pst.executeQuery();
 
 
@@ -204,6 +204,7 @@ public class studentRegistrationController  {
                 }
                 else {
                     if(name.equals(userText)) {
+                        u.setAlertType(Alert.AlertType.ERROR);
                         u.setContentText("Failure");
                         u.show();
                     }
@@ -212,7 +213,7 @@ public class studentRegistrationController  {
             }
 
         }catch(Exception ee) {
-            System.out.println("soo soo bad");
+            System.out.println("soo soo baaaaaaaad");
             System.out.println(ee);
         }
         return failure;
@@ -268,6 +269,8 @@ public class studentRegistrationController  {
         String division = division_id.getText();
         String country = country_id.getText();
 
+        int special_code = 0000;
+
 
 
         String addStAcc = "INSERT INTO student(f_name, l_name, place_of_birth, region_of_origin, address, marital_status, qualification, sex, mothers_name, fathers_name, division_of_origin, date_of_birth, mothers_address, fathers_address) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -281,7 +284,7 @@ public class studentRegistrationController  {
             System.out.println("how are you today");
             PreparedStatement insert = con_student.prepareStatement(addStAcc);
 
-            int special_code = 0000;
+
             insert.setString(1,fi_name);
             insert.setString(2, last_name);
             insert.setString(3, place);
@@ -308,13 +311,14 @@ public class studentRegistrationController  {
                 if(firsName.equals(fi_name) && secondName.equals(last_name)){
                     special_code = studs.getInt("stu_id");
                 }
+                a.setAlertType(Alert.AlertType.CONFIRMATION);
+                a.setContentText("Successfull Registration your special code is " + special_code);
+                a.show();
 
 
             }
 
-            a.setAlertType(Alert.AlertType.CONFIRMATION);
-            a.setContentText("Successfull Registration" + special_code);
-            a.show();
+
             System.out.println("successfll registration");
 
 
@@ -338,7 +342,70 @@ public class studentRegistrationController  {
         stage.show();
     }
 
-    public void sign_up(){
+    public void sign_up(ActionEvent event) throws IOException{
+
+        System.out.println("I am right in here");
+        String special_code = matricule_id.getText();
+        String email = email2_id.getText();
+        String pas1 = password1_id.getText();
+        String pas2 = password2_id.getText();
+        String pas = "0";
+        System.out.println(email + pas1 + pas2);
+
+
+
+        Alert u = new Alert(Alert.AlertType.NONE);
+        if(pas1.equals(pas2)){
+            pas = pas1;
+
+
+
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3308/institution_database","root","willywillywils");
+            PreparedStatement pst = con.prepareStatement("select * from users");
+            PreparedStatement update_users = con.prepareStatement("UPDATE users SET passwords = ? WHERE user_id = ?");
+            ResultSet rs = pst.executeQuery();
+
+            boolean failure = true;
+            while(rs.next() && failure) {
+
+                String emails=rs.getString("email");
+                String user_id=rs.getString("user_id");
+                System.out.println(special_code + "  " + email + email.equals(emails) + special_code.equals(user_id) );
+
+
+
+                if(special_code.equals(user_id) && emails.equals(email) ) {
+                    update_users.setInt(2, Integer.parseInt(user_id));
+                    update_users.setString(1, pas);
+                    int uvw = update_users.executeUpdate();
+
+                    u.setAlertType(Alert.AlertType.CONFIRMATION);
+                    u.setContentText("successfull!!!");
+                    u.show();
+                    failure = false;
+
+                }
+
+
+
+
+            }
+
+        }catch(Exception ee) {
+            System.out.println("soo soo bad");
+            System.out.println(ee);
+        }
+
+
+    }
+
+
+
+
+
 
     }
 

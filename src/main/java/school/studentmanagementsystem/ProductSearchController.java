@@ -20,10 +20,7 @@ import org.w3c.dom.events.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -62,7 +59,7 @@ public class ProductSearchController implements Initializable {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
-        String productViewQuery = "select stu_id, f_name, mothers_address, qualification from student where mothers_address is not null;";
+        String productViewQuery = "select stu_id, f_name, mothers_address, qualification from student where stu_id > 13 and registered is false";
 
         try {
             Statement statement = connectDB.createStatement();
@@ -109,18 +106,40 @@ public class ProductSearchController implements Initializable {
         stage.show();
     }
 
-    public void add_student(javafx.scene.input.MouseEvent mouseEvent) {
+    public void add_student(javafx.scene.input.MouseEvent mouseEvent) {//given  a user id, dep_id, cycle_id and user type
+        DatabaseConnection connectNow = new DatabaseConnection();
+        Connection connectDB = connectNow.getConnection();
         try{
             ProductSearchModel one_stud = productTableView.getSelectionModel().getSelectedItem();
 
+                Integer stud_id = one_stud.getStudent_id();
+                String stud_email = one_stud.getStudent_email();
+                String name = one_stud.getStudent_name();
+                change_name.setText(name);
+                String add_student_query = "INSERT INTO users( user_id, typ, email) VALUES (?,?,?)";
+                String change_reg_status = "UPDATE student SET registered = ? WHERE stu_id = ?";
 
-            if(one_stud==null){
-                change_name.setText("no selection");
-            }
-            else{
-                Integer name = one_stud.getStudent_id();
-                change_name.setText(name.toString());
-            }
+                try{
+                    PreparedStatement insert = connectDB.prepareStatement(add_student_query);
+                    PreparedStatement statement = connectDB.prepareStatement(change_reg_status);
+
+                    statement.setBoolean(1, true);
+                    statement.setInt(2,stud_id);
+
+                    insert.setInt(1, stud_id);
+                    insert.setString(2, "Stud");
+                    insert.setString(3, stud_email);
+                    int ppp = insert.executeUpdate();
+                    int uuu = statement.executeUpdate();
+                    productTableView.getItems().removeAll(productTableView.getSelectionModel().getSelectedItem());
+
+
+                } catch (SQLException e) {
+                    Logger.getLogger(ProductSearchController.class.getName()).log(Level.SEVERE, null, e);
+                    e.printStackTrace();
+
+                }
+
         }
         catch (Exception e){
 
