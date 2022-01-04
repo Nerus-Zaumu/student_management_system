@@ -13,7 +13,8 @@ public class studentRegistrationForm extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(studentRegistrationForm.class.getResource("Login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Registration Form");
-        stage.setResizable(false);
+        stage.setMaximized(true);
+        stage.setFullScreen(true);
         stage.setScene(scene);
         stage.show();
     }
