@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="751.0" prefWidth="741.0" styleClass="background" stylesheets="@LoginStyles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="school.studentmanagementsystem.ReportsController">
+   <children>
+      <Pane prefHeight="757.0" prefWidth="384.0" styleClass="background" stylesheets="@LoginStyles.css">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Label layoutX="116.0" layoutY="52.0" text="Generate Report">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <ComboBox layoutX="28.0" layoutY="510.0" prefHeight="36.0" prefWidth="167.0" promptText="Choose cycle" styleClass="button-login" stylesheets="@LoginStyles.css" />
+            <ComboBox layoutX="207.0" layoutY="459.0" prefHeight="36.0" prefWidth="167.0" promptText="choose sex" styleClass="button-login" stylesheets="@LoginStyles.css" />
+            <ComboBox layoutX="207.0" layoutY="510.0" prefHeight="36.0" prefWidth="167.0" promptText="choose class" styleClass="button-login" stylesheets="@LoginStyles.css" />
+            <ComboBox layoutX="28.0" layoutY="459.0" prefHeight="36.0" prefWidth="167.0" promptText="choose department" styleClass="button-login" stylesheets="@LoginStyles.css" />
+            <Button layoutX="23.0" layoutY="211.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="156.0" styleClass="button-login" stylesheets="@LoginStyles.css" text="Male Students per Class" />
+            <Button layoutX="23.0" layoutY="122.0" mnemonicParsing="false" onAction="#Registered_Students" prefHeight="44.0" prefWidth="156.0" styleClass="button-login" stylesheets="@LoginStyles.css" text="Registered Students" />
+            <Button layoutX="213.0" layoutY="122.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="156.0" styleClass="button-login" stylesheets="@LoginStyles.css" text=" Students per Class" />
+            <Button layoutX="23.0" layoutY="379.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="156.0" styleClass="button-login" stylesheets="@LoginStyles.css" text="Femal Students per Class" />
+            <Button layoutX="23.0" layoutY="295.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="156.0" styleClass="button-login" stylesheets="@LoginStyles.css" text="Femal Students per Class" />
+            <Button layoutX="213.0" layoutY="295.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="156.0" styleClass="button-login" stylesheets="@LoginStyles.css" text="Femal Students per Class" />
+            <Button layoutX="213.0" layoutY="211.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="156.0" styleClass="button-login" stylesheets="@LoginStyles.css" text="Femal Students per Class" />
+            <Button layoutX="2.0" layoutY="2.0" mnemonicParsing="false" onAction="#Back_to_admin" styleClass="sub_items" stylesheets="@studentDashboardStyles.css" text="Back to Admin Dashboard" />
+         </children>
+      </Pane>
+      <Pane layoutX="386.0" prefHeight="749.0" prefWidth="354.0" styleClass="background" stylesheets="@LoginStyles.css">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Label layoutX="138.0" layoutY="52.0" text="Reports">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="18.0" layoutY="223.0" prefHeight="25.0" prefWidth="329.0" text="The generated reports will appear here as files">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+   <effect>
+      <Blend />
+   </effect>
+</AnchorPane>

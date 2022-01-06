@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="755.0" prefWidth="875.0" styleClass="background" stylesheets="@LoginStyles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="school.studentmanagementsystem.ProductSearchController">
+   <children>
+      <Label layoutX="285.0" layoutY="40.0" prefHeight="25.0" prefWidth="217.0" text="Student Distribution">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TableView layoutX="23.0" layoutY="103.0" prefHeight="232.0" prefWidth="291.0" styleClass="background" stylesheets="@LoginStyles.css">
+         <columns>
+            <TableColumn prefWidth="150.0" text="Cycle distribution" />
+            <TableColumn minWidth="0.0" prefWidth="144.0" text="student count" />
+         </columns>
+         <effect>
+            <DropShadow />
+         </effect>
+      </TableView>
+      <TableView layoutX="429.0" layoutY="103.0" prefHeight="232.0" prefWidth="291.0" styleClass="background" stylesheets="@LoginStyles.css">
+         <columns>
+            <TableColumn prefWidth="184.0" text="Department distribution" />
+            <TableColumn minWidth="0.0" prefWidth="110.0" text="student count" />
+            <TableColumn prefWidth="150.0" text="Department" />
+         </columns>
+         <effect>
+            <DropShadow />
+         </effect>
+      </TableView>
+      <TableView layoutX="23.0" layoutY="350.0" prefHeight="232.0" prefWidth="291.0" styleClass="background" stylesheets="@LoginStyles.css">
+         <columns>
+            <TableColumn prefWidth="184.0" text="Class distribution" />
+            <TableColumn minWidth="0.0" prefWidth="110.0" text="student count" />
+            <TableColumn prefWidth="150.0" text="Department" />
+         </columns>
+         <effect>
+            <DropShadow />
+         </effect>
+      </TableView>
+      <TableView layoutX="429.0" layoutY="350.0" prefHeight="232.0" prefWidth="291.0" styleClass="background" stylesheets="@LoginStyles.css">
+         <columns>
+            <TableColumn prefWidth="184.0" text="Sex distribution" />
+            <TableColumn minWidth="0.0" prefWidth="110.0" text="student count" />
+            <TableColumn prefWidth="150.0" text="Department" />
+         </columns>
+         <effect>
+            <DropShadow />
+         </effect>
+      </TableView>
+   </children>
+</AnchorPane>
