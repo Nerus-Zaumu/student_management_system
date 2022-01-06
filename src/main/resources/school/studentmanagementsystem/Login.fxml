@@ -18,7 +18,7 @@
       </Label>
       <TextField fx:id="email_id" alignment="CENTER" layoutX="345.0" layoutY="105.0" prefHeight="47.0" prefWidth="288.0" />
       <PasswordField fx:id="password_id" alignment="CENTER" layoutX="345.0" layoutY="196.0" prefHeight="47.0" prefWidth="288.0" />
-      <Button alignment="CENTER" layoutX="439.0" layoutY="253.0" mnemonicParsing="false" onAction="#SwitchToStudentDashboard" prefHeight="47.0" prefWidth="101.0" styleClass="button-login" text="Login" />
+      <Button fx:id="login_button" alignment="CENTER" layoutX="439.0" layoutY="253.0" mnemonicParsing="false" onAction="#SwitchToStudentDashboard" prefHeight="47.0" prefWidth="101.0" styleClass="button-login" text="Login" />
       <Button alignment="CENTER" layoutX="339.0" layoutY="326.0" mnemonicParsing="false" onAction="#SwitchToSignup" prefHeight="25.0" prefWidth="138.0" styleClass="button-switch-scene" text="Switch to signup" />
       <Button alignment="CENTER" layoutX="500.0" layoutY="326.0" mnemonicParsing="false" onAction="#SwitchToRegistration" prefHeight="25.0" prefWidth="174.0" styleClass="button-switch-scene" text="Switch to Registration" />
       <Label alignment="CENTER" layoutX="275.0" layoutY="116.0" text="Email">

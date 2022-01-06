@@ -80,7 +80,15 @@ public class studentRegistrationController {
     @FXML
     private Label type2_id;
     @FXML
-    private TextField f_name_id, matricule_id, password1_id, password2_id, email2_id;
+    private TextField f_name_id;
+    @FXML
+    private TextField matricule_id;
+    @FXML
+    private TextField password1_id;
+    @FXML
+    private TextField password2_id;
+    @FXML
+    private static TextField email2_id;
     @FXML
     private TextField l_name_id;
     @FXML
@@ -108,12 +116,50 @@ public class studentRegistrationController {
     private TextField pref_dep_id;
 
     @FXML
+    private Button login_button;
+
+
+    @FXML
     private TextField address_id;
     @FXML
     private TextField qualification_id;
+    public String get_name(){
+        System.out.println("i am in the get_name function");
+        String user_name = " ";
+        boolean failure = true;
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3308/institution_database", "root", "willywillywils");
+            PreparedStatement pst = con.prepareStatement("select * from student where mothers_address = ?");
+            pst.setString(1, email_id.getText());
+            ResultSet rs = pst.executeQuery();
 
 
-    public int get_type() {
+     if(rs.next()) {
+
+         String fname = rs.getString("f_name");
+         String lname = rs.getString("l_name");
+         user_name = fname + " " +lname;
+
+     }
+
+
+
+
+        } catch (Exception ee) {
+            System.out.println("soo soo baaaaaaaad");
+            System.out.println(ee);
+        }
+
+
+
+        System.out.println(user_name);
+        return user_name;
+
+    }
+
+        public int get_type() {
         int u;
 
         if (type_id.getText().equals("Admin Login")) {
@@ -236,6 +282,7 @@ public class studentRegistrationController {
     }
 
     public void SwitchToStudentDashboard(ActionEvent event) throws IOException {
+        String username = get_name();
         boolean success;
         String name = "studentDashboard-view.fxml";
         String type = "Stud";
@@ -246,7 +293,17 @@ public class studentRegistrationController {
         System.out.println(type);
         success = !testValidation(type);
         if (success) {
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(name)));
+            if(type == "Admin"){
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(name)));
+            }
+            else{
+                FXMLLoader loader = new FXMLLoader(getClass().getResource(name));
+
+                root = loader.load();
+                studentDashboardController studentDashboard = loader.getController();
+                studentDashboard.displayStudentName(username);
+            }
+
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
