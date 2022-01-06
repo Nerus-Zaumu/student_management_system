@@ -28,25 +28,31 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class studentRegistrationController  {
+public class studentRegistrationController {
 
 
-//
+
+    //
+
+    @FXML
     private Stage stage;
-    private Scene scene;
-   private Parent root;
 
+    private Scene scene;
+
+    private Parent root;
 
 
 //
 //@
 //
 //
-//    List<String> countries = Objects.requireNonNull(Arrays.asList("Afghanistan", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia and Herzegowina", "Botswana", "Bouvet Island", "Brazil", "British Indian Ocean Territory", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Cayman Islands", "Central African Republic", "Chad", "Chile", "China", "Christmas Island", "Cocos (Keeling) Islands", "Colombia", "Comoros", "Congo", "Congo, the Democratic Republic of the", "Cook Islands", "Costa Rica", "Cote d'Ivoire", "Croatia (Hrvatska)", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Falkland Islands (Malvinas)", "Faroe Islands", "Fiji", "Finland", "France", "France Metropolitan", "French Guiana", "French Polynesia", "French Southern Territories", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Heard and Mc Donald Islands", "Holy See (Vatican City State)", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran (Islamic Republic of)", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, Democratic People's Republic of", "Korea, Republic of", "Kuwait", "Kyrgyzstan", "Lao, People's Democratic Republic", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libyan Arab Jamahiriya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia, The Former Yugoslav Republic of", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico", "Micronesia, Federated States of", "Moldova, Republic of", "Monaco", "Mongolia", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Niue", "Norfolk Island", "Northern Mariana Islands", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Pitcairn", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russian Federation", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Seychelles", "Sierra Leone", "Singapore", "Slovakia (Slovak Republic)", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Georgia and the South Sandwich Islands", "Spain", "Sri Lanka", "St. Helena", "St. Pierre and Miquelon", "Sudan", "Suriname", "Svalbard and Jan Mayen Islands", "Swaziland", "Sweden", "Switzerland", "Syrian Arab Republic", "Taiwan, Province of China", "Tajikistan", "Tanzania, United Republic of", "Thailand", "Togo", "Tokelau", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks and Caicos Islands", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "United States Minor Outlying Islands", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Virgin Islands (British)", "Virgin Islands (U.S.)", "Wallis and Futuna Islands", "Western Sahara", "Yemen", "Yugoslavia", "Zambia", "Zimbabwe", "Palestine"));
-//    List<String> regions = Objects.requireNonNull(Arrays.asList("Far North", "North", "Adamaoua", "Centre", "East", "West", "Littoral", "South", "South West", "NorthWest"));
-//    List<String> divisions = Objects.requireNonNull(Arrays.asList("Fako", "Meme", "Ndian", "Manyu", "Lebialem", "Kupe Manenguba", "Boyo", "Bui", "Donga-Mantung", "Menchum", "Mezam", "Momo", "Ngo-ketunjia", "Bamboutos", "Haut-Nkam", "Hauts-Plateaux", "Koung-Khi", "Menoua", "Mifi", "Nde", "Noun", "Moungo", "Nkam", "Sanaga-Maritime", "Wouri", "Dja-et_Lobo", "Mvila", "Ocean", "Vallee-du-Ntem", "Boumba-et-Ngoko", "Haut-Nyong", "Kadey", "Lom-et-Djerem", "Haute-Sanaga", "Lekie", "Mbam-et-Inoubou", "Mbam-et-Kim", "Mefou-et-Afamba", "Mefou-et-Akono", "Mfoundi", "Nyong-et-mfoumou", "Nyong-et-So'o", "Benoue", "Faro", "Mayo-Louti", "Mayo-Rey", "Diamare", "Logone-et-Chari", "Mayo-Danay", "Mayo-Kani", "Mayo-Sava", "Mayo-Tsanaga", "Djerem", "Fara-etDeo", "Mayo-Banyo", "Mbere", "Vina"));
-//    @FXML
-//    private ComboBox<String> country;
+
+
+    ObservableList<String> pr_dep = FXCollections.observableArrayList("Civil Engineering", "Rural Engineering", "Town Planning", "Land Surveying");
+  //      ObservableList<String> countries = FXCollections.observableArrayList("Afghanistan", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia and Herzegowina", "Botswana", "Bouvet Island", "Brazil", "British Indian Ocean Territory", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Cayman Islands", "Central African Republic", "Chad", "Chile", "China", "Christmas Island", "Cocos (Keeling) Islands", "Colombia", "Comoros", "Congo", "Congo, the Democratic Republic of the", "Cook Islands", "Costa Rica", "Cote d'Ivoire", "Croatia (Hrvatska)", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Falkland Islands (Malvinas)", "Faroe Islands", "Fiji", "Finland", "France", "France Metropolitan", "French Guiana", "French Polynesia", "French Southern Territories", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Heard and Mc Donald Islands", "Holy See (Vatican City State)", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran (Islamic Republic of)", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, Democratic People's Republic of", "Korea, Republic of", "Kuwait", "Kyrgyzstan", "Lao, People's Democratic Republic", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libyan Arab Jamahiriya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia, The Former Yugoslav Republic of", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico", "Micronesia, Federated States of", "Moldova, Republic of", "Monaco", "Mongolia", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Niue", "Norfolk Island", "Northern Mariana Islands", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Pitcairn", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russian Federation", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Seychelles", "Sierra Leone", "Singapore", "Slovakia (Slovak Republic)", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Georgia and the South Sandwich Islands", "Spain", "Sri Lanka", "St. Helena", "St. Pierre and Miquelon", "Sudan", "Suriname", "Svalbard and Jan Mayen Islands", "Swaziland", "Sweden", "Switzerland", "Syrian Arab Republic", "Taiwan, Province of China", "Tajikistan", "Tanzania, United Republic of", "Thailand", "Togo", "Tokelau", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks and Caicos Islands", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "United States Minor Outlying Islands", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Virgin Islands (British)", "Virgin Islands (U.S.)", "Wallis and Futuna Islands", "Western Sahara", "Yemen", "Yugoslavia", "Zambia", "Zimbabwe", "Palestine");
+  //  ObservableList<String> regions = FXCollections.observableArrayList("Far North", "North", "Adamaoua", "Centre", "East", "West", "Littoral", "South", "South West", "NorthWest");
+    //ObservableList<String> divisions = FXCollections.observableArrayList("Fako", "Meme", "Ndian", "Manyu", "Lebialem", "Kupe Manenguba", "Boyo", "Bui", "Donga-Mantung", "Menchum", "Mezam", "Momo", "Ngo-ketunjia", "Bamboutos", "Haut-Nkam", "Hauts-Plateaux", "Koung-Khi", "Menoua", "Mifi", "Nde", "Noun", "Moungo", "Nkam", "Sanaga-Maritime", "Wouri", "Dja-et_Lobo", "Mvila", "Ocean", "Vallee-du-Ntem", "Boumba-et-Ngoko", "Haut-Nyong", "Kadey", "Lom-et-Djerem", "Haute-Sanaga", "Lekie", "Mbam-et-Inoubou", "Mbam-et-Kim", "Mefou-et-Afamba", "Mefou-et-Akono", "Mfoundi", "Nyong-et-mfoumou", "Nyong-et-So'o", "Benoue", "Faro", "Mayo-Louti", "Mayo-Rey", "Diamare", "Logone-et-Chari", "Mayo-Danay", "Mayo-Kani", "Mayo-Sava", "Mayo-Tsanaga", "Djerem", "Fara-etDeo", "Mayo-Banyo", "Mbere", "Vina");
+
 //    @FXML
 //    private ComboBox<String> region;
 //    @FXML
@@ -56,12 +62,14 @@ public class studentRegistrationController  {
 //    ObservableList<String> regionLoad = FXCollections.observableArrayList(regions);
 //    ObservableList<String> divisionLoad = FXCollections.observableArrayList(divisions);
 //
-//    @Override
-//    public void initialize(URL url, ResourceBundle resourceBundle){
+    //@Override
+   // public void initialize(URL url, ResourceBundle resourceBundle){
+      //  pref_dep_id.setItems(pr_dep);
+
 //        country.setItems(countryLoad);
 //        region.setItems(regionLoad);
 //        division.setItems(divisionLoad);
-//    }
+
 
     @FXML
     private TextField email_id;
@@ -96,13 +104,13 @@ public class studentRegistrationController  {
     @FXML
     private TextField p_address_id;
 
+    @FXML
+    private TextField pref_dep_id;
 
     @FXML
     private TextField address_id;
     @FXML
     private TextField qualification_id;
-
-
 
 
     public int get_type() {
@@ -115,6 +123,7 @@ public class studentRegistrationController  {
         }
         return u;
     }
+
     public void switch_class() throws IOException {
         System.out.println("I am cliked");
 
@@ -138,25 +147,33 @@ public class studentRegistrationController  {
         }
 
     }
-
-
-
-
-    public void SwitchToRegistration(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("studentRegistration-view.fxml")));
+    public void SwitchToReports(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Reports.fxml")));
 //        FXMLLoader fxmlLoader = new FXMLLoader(studentRegistrationForm.class.getResource("studentRegistration-view.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
 
     }
+
+
+    public void SwitchToRegistration(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("studentRegistration-view.fxml")));
+//        FXMLLoader fxmlLoader = new FXMLLoader(studentRegistrationForm.class.getResource("studentRegistration-view.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
     public void SwitchToLogin(ActionEvent event) throws IOException {
         String name = "Login.fxml";
 
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(name)));
 //        FXMLLoader fxmlLoader = new FXMLLoader(studentRegistrationForm.class.getResource("Login.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -165,45 +182,44 @@ public class studentRegistrationController  {
     public void SwitchToSignup(ActionEvent event) throws IOException {
         try {
             register();
-        }
-        catch (Exception u){
+        } catch (Exception u) {
             System.out.println("are we together");
         }
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Signup.fxml")));
 //        FXMLLoader fxmlLoader = new FXMLLoader(studentRegistrationForm.class.getResource("Signup.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-    public boolean testValidation(String type){
+
+    public boolean testValidation(String type) {
         Alert u = new Alert(Alert.AlertType.NONE);
         String userText = email_id.getText();
         String pwdText = password_id.getText();
         boolean failure = true;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3308/institution_database","root","willywillywils");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3308/institution_database", "root", "willywillywils");
             PreparedStatement pst = con.prepareStatement("select * from users where email is not null");
             ResultSet rs = pst.executeQuery();
 
 
-            while(rs.next() && failure) {
+            while (rs.next() && failure) {
                 System.out.println(rs.getString("email"));
 
-                String name=rs.getString("email");
-                String ppd=rs.getString("passwords");
-                String typ=rs.getString("typ");
-                System.out.println(name +" "+  ppd +" "+typ + "     " + userText+" "+type +" "+pwdText+"\n");
+                String name = rs.getString("email");
+                String ppd = rs.getString("passwords");
+                String typ = rs.getString("typ");
+                System.out.println(name + " " + ppd + " " + typ + "     " + userText + " " + type + " " + pwdText + "\n");
 
-                if(name.equals(userText)&&pwdText.equals(ppd)&&type.equals(typ)) {
+                if (name.equals(userText) && pwdText.equals(ppd) && type.equals(typ)) {
                     failure = false;
                     u.setAlertType(Alert.AlertType.CONFIRMATION);
                     u.setContentText("Successful Login");
                     u.show();
-                }
-                else {
-                    if(name.equals(userText)) {
+                } else {
+                    if (name.equals(userText)) {
                         u.setAlertType(Alert.AlertType.ERROR);
                         u.setContentText("Failure");
                         u.show();
@@ -212,32 +228,32 @@ public class studentRegistrationController  {
                 }
             }
 
-        }catch(Exception ee) {
+        } catch (Exception ee) {
             System.out.println("soo soo baaaaaaaad");
             System.out.println(ee);
         }
         return failure;
     }
+
     public void SwitchToStudentDashboard(ActionEvent event) throws IOException {
         boolean success;
         String name = "studentDashboard-view.fxml";
         String type = "Stud";
-        if(get_type()==1){
+        if (get_type() == 1) {
             name = "AdminDashboard.fxml";
             type = "Admin";
         }
         System.out.println(type);
         success = !testValidation(type);
-        if(success){
+        if (success) {
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(name)));
 
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
 
-        }
-        else{
+        } else {
             System.out.println("couldn't get in");
         }
 //        FXMLLoader fxmlLoader = new FXMLLoader(studentRegistrationForm.class.getResource("studentDashboard-view.fxml"));
@@ -255,7 +271,7 @@ public class studentRegistrationController  {
 
 
         String fi_name = f_name_id.getText();
-        String last_name =  l_name_id.getText();
+        String last_name = l_name_id.getText();
         String place = placeOfBirth.getText();
         String qualification = qualification_id.getText();
         String sex = sex_id.getText();
@@ -268,16 +284,15 @@ public class studentRegistrationController  {
         String region = region_id.getText();
         String division = division_id.getText();
         String country = country_id.getText();
+        String dp_id = pref_dep_id.getText();
 
         int special_code = 0000;
 
 
-
-        String addStAcc = "INSERT INTO student(f_name, l_name, place_of_birth, region_of_origin, address, marital_status, qualification, sex, mothers_name, fathers_name, division_of_origin, date_of_birth, mothers_address, fathers_address) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String addStAcc = "INSERT INTO student(f_name, l_name, place_of_birth, region_of_origin, address, marital_status, qualification, sex, mothers_name, fathers_name, division_of_origin, date_of_birth, mothers_address, fathers_address, pref_dep) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         Connection con_student = con.getConnection();
         Alert a = new Alert(Alert.AlertType.NONE);
-
 
 
         try {
@@ -285,7 +300,7 @@ public class studentRegistrationController  {
             PreparedStatement insert = con_student.prepareStatement(addStAcc);
 
 
-            insert.setString(1,fi_name);
+            insert.setString(1, fi_name);
             insert.setString(2, last_name);
             insert.setString(3, place);
             insert.setString(4, region);
@@ -299,16 +314,17 @@ public class studentRegistrationController  {
             insert.setDate(12, Date.valueOf(myDate));
             insert.setString(13, m_address);
             insert.setString(14, f_address);
+            insert.setString(15, dp_id);
 
             int uuuu = insert.executeUpdate();
 
             PreparedStatement get_stu_id = con_student.prepareStatement("SELECT * from student");
             ResultSet studs = get_stu_id.executeQuery();
             boolean found = false;
-            while(studs.next() && !found){
+            while (studs.next() && !found) {
                 String firsName = studs.getString("f_name");
                 String secondName = studs.getString("l_name");
-                if(firsName.equals(fi_name) && secondName.equals(last_name)){
+                if (firsName.equals(fi_name) && secondName.equals(last_name)) {
                     special_code = studs.getInt("stu_id");
                 }
                 a.setAlertType(Alert.AlertType.CONFIRMATION);
@@ -333,16 +349,15 @@ public class studentRegistrationController  {
     public void View_registered_students(ActionEvent event) throws IOException {
 
 
-
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("productsearch.fxml")));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-       // FXMLLoader fxmlLoader = new FXMLLoader(studentRegistrationForm.class.getResource("productsearch.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        // FXMLLoader fxmlLoader = new FXMLLoader(studentRegistrationForm.class.getResource("productsearch.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
-    public void sign_up(ActionEvent event) throws IOException{
+    public void sign_up(ActionEvent event) throws IOException {
 
         System.out.println("I am right in here");
         String special_code = matricule_id.getText();
@@ -353,62 +368,51 @@ public class studentRegistrationController  {
         System.out.println(email + pas1 + pas2);
 
 
-
         Alert u = new Alert(Alert.AlertType.NONE);
-        if(pas1.equals(pas2)){
+        if (pas1.equals(pas2)) {
             pas = pas1;
 
 
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3308/institution_database", "root", "willywillywils");
+                PreparedStatement pst = con.prepareStatement("select * from users");
+                PreparedStatement update_users = con.prepareStatement("UPDATE users SET passwords = ? WHERE user_id = ?");
+                ResultSet rs = pst.executeQuery();
+
+                boolean failure = true;
+                while (rs.next() && failure) {
+
+                    String emails = rs.getString("email");
+                    String user_id = rs.getString("user_id");
+                    System.out.println(special_code + "  " + email + email.equals(emails) + special_code.equals(user_id));
 
 
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3308/institution_database","root","willywillywils");
-            PreparedStatement pst = con.prepareStatement("select * from users");
-            PreparedStatement update_users = con.prepareStatement("UPDATE users SET passwords = ? WHERE user_id = ?");
-            ResultSet rs = pst.executeQuery();
+                    if (special_code.equals(user_id) && emails.equals(email)) {
+                        update_users.setInt(2, Integer.parseInt(user_id));
+                        update_users.setString(1, pas);
+                        int uvw = update_users.executeUpdate();
 
-            boolean failure = true;
-            while(rs.next() && failure) {
+                        u.setAlertType(Alert.AlertType.CONFIRMATION);
+                        u.setContentText("successfull!!!");
+                        u.show();
+                        failure = false;
 
-                String emails=rs.getString("email");
-                String user_id=rs.getString("user_id");
-                System.out.println(special_code + "  " + email + email.equals(emails) + special_code.equals(user_id) );
+                    }
 
-
-
-                if(special_code.equals(user_id) && emails.equals(email) ) {
-                    update_users.setInt(2, Integer.parseInt(user_id));
-                    update_users.setString(1, pas);
-                    int uvw = update_users.executeUpdate();
-
-                    u.setAlertType(Alert.AlertType.CONFIRMATION);
-                    u.setContentText("successfull!!!");
-                    u.show();
-                    failure = false;
 
                 }
 
-
-
-
+            } catch (Exception ee) {
+                System.out.println("soo soo bad");
+                System.out.println(ee);
             }
 
-        }catch(Exception ee) {
-            System.out.println("soo soo bad");
-            System.out.println(ee);
+
         }
 
 
     }
-
-
-
-
-
-
-    }
-
 
 
 }

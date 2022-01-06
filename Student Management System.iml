@@ -19,28 +19,6 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/all_things_java/mysql-connector-java_8.0.27-1ubuntu20.04_all/data/usr/share/java/mysql-connector-java-8.0.27.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="file://$USER_HOME$/all_things_java/openjfx-17.0.1_linux-x64_bin-sdk/javafx-sdk-17.0.1/lib" />
-        </CLASSES>
-        <JAVADOC />
-        <NATIVE>
-          <root url="file://$USER_HOME$/all_things_java/openjfx-17.0.1_linux-x64_bin-sdk/javafx-sdk-17.0.1/lib" />
-        </NATIVE>
-        <SOURCES />
-        <jarDirectory url="file://$USER_HOME$/all_things_java/openjfx-17.0.1_linux-x64_bin-sdk/javafx-sdk-17.0.1/lib" recursive="false" />
-      </library>
-    </orderEntry>
     <orderEntry type="library" name="Maven: org.openjfx:javafx-controls:17.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-controls:win:17.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:17.0.1" level="project" />
@@ -58,5 +36,83 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-engine:1.8.1" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-base:17.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-base:win:17.0.1" level="project" />
+    <orderEntry type="library" name="itext7-barcodes-7.0.1" level="project" />
+    <orderEntry type="library" name="itextpdf-5.4.0" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Downloads/javafx-sdk-17.0.1/lib/javafx-swt.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/javafx-sdk-17.0.1/lib/javafx.base.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/javafx-sdk-17.0.1/lib/javafx.controls.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/javafx-sdk-17.0.1/lib/javafx.fxml.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/javafx-sdk-17.0.1/lib/javafx.graphics.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/javafx-sdk-17.0.1/lib/javafx.media.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/javafx-sdk-17.0.1/lib/javafx.swing.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/javafx-sdk-17.0.1/lib/javafx.web.jar!/" />
+          <root url="file://$USER_HOME$" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$USER_HOME$" />
+          <root url="file://$USER_HOME$/.vscode/extensions/vscjava.vscode-java-dependency-0.18.8/templates/invisible-project/src" />
+          <root url="file://$USER_HOME$/.vscode/extensions/vscjava.vscode-maven-0.34.1/resources/maven-wrapper/.mvn/wrapper" />
+          <root url="file://$USER_HOME$/AppData/Local/NetBeans/Cache/12.4/index/s183/java/15/gensrc" />
+          <root url="file://$USER_HOME$/AppData/Local/atom/app-1.58.0" />
+          <root url="file://$USER_HOME$/Downloads" />
+          <root url="file://$USER_HOME$/IdeaProjects/I am tired/src" />
+          <root url="file://$USER_HOME$/IdeaProjects/MyFirstJavaApp/src" />
+          <root url="file://$USER_HOME$/IdeaProjects/connection/src/main/java" />
+          <root url="file://$USER_HOME$/IdeaProjects/connections/src/main/java" />
+          <root url="file://$USER_HOME$/IdeaProjects/databaseTesst/src/main/java" />
+          <root url="file://$USER_HOME$/IdeaProjects/demo10/src/main/java" />
+          <root url="file://$USER_HOME$/IdeaProjects/demo11/src/main/java" />
+          <root url="file://$USER_HOME$/IdeaProjects/demo12/src/main/java" />
+          <root url="file://$USER_HOME$/IdeaProjects/demo13/ProductFindar/src/main/java" />
+          <root url="file://$USER_HOME$/IdeaProjects/demo13/ProductFinder/src/main/java" />
+          <root url="file://$USER_HOME$/IdeaProjects/demo13/demo/src/main/java" />
+          <root url="file://$USER_HOME$/IdeaProjects/demo13/login Pages/src/main/java" />
+          <root url="file://$USER_HOME$/IdeaProjects/demo13/login Pages/src/main/resources" />
+          <root url="file://$USER_HOME$/IdeaProjects/demo13/login Pages/target/classes" />
+          <root url="file://$USER_HOME$/IdeaProjects/demo13/switching scenes/src/main/java" />
+          <root url="file://$USER_HOME$/IdeaProjects/demo1/src/main/java" />
+          <root url="file://$USER_HOME$/IdeaProjects/demo2/src/main/java" />
+          <root url="file://$USER_HOME$/IdeaProjects/demo3/src/main/java" />
+          <root url="file://$USER_HOME$/IdeaProjects/demo4/src/main/java" />
+          <root url="file://$USER_HOME$/IdeaProjects/demo5/src/main/java" />
+          <root url="file://$USER_HOME$/IdeaProjects/demo6/src/main/java" />
+          <root url="file://$USER_HOME$/IdeaProjects/demo7/src/main/java" />
+          <root url="file://$USER_HOME$/IdeaProjects/demo8/src/main/java" />
+          <root url="file://$USER_HOME$/IdeaProjects/demo9/src/main/java" />
+          <root url="file://$USER_HOME$/IdeaProjects/demo/src/main/java" />
+          <root url="file://$USER_HOME$/IdeaProjects/hellofx/src" />
+          <root url="file://$USER_HOME$/IdeaProjects/myfirstfxprogram/src/main/java" />
+          <root url="file://$USER_HOME$/IdeaProjects/reassss/src/main/java" />
+          <root url="file://$USER_HOME$/IdeaProjects/untitled1/src" />
+          <root url="file://$USER_HOME$/IdeaProjects/untitled2/src" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/345SDT/mysql-connector-java-8.0.27/src/build/java" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/345SDT/mysql-connector-java-8.0.27/src/demo/java" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/345SDT/mysql-connector-java-8.0.27/src/generated/java" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/345SDT/mysql-connector-java-8.0.27/src/legacy/java" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/345SDT/mysql-connector-java-8.0.27/src/main/core-api/java" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/345SDT/mysql-connector-java-8.0.27/src/main/core-impl/java" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/345SDT/mysql-connector-java-8.0.27/src/main/protocol-impl/java" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/345SDT/mysql-connector-java-8.0.27/src/main/user-api/java" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/345SDT/mysql-connector-java-8.0.27/src/main/user-impl/java" />
+          <root url="file://$USER_HOME$/OneDrive/Desktop/345SDT/mysql-connector-java-8.0.27/src/test/java" />
+          <root url="file://$USER_HOME$/OneDrive/Documents/NetBeansProjects/JavaApplication1/src" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="javafx-swt" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$USER_HOME$/Downloads/javafx-sdk-17.0.1/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$USER_HOME$/Downloads/javafx-sdk-17.0.1/lib" recursive="false" />
+      </library>
+    </orderEntry>
   </component>
 </module>

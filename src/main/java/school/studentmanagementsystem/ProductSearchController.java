@@ -9,10 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -50,12 +47,15 @@ public class ProductSearchController implements Initializable {
     private Stage stage;
     @FXML
     private Scene scene;
+    @FXML
+    public ComboBox<String> comboBox_id;
 
-
+    ObservableList<String> list = FXCollections.observableArrayList("Civil Engineering", "Rural Engineering", "Land Surveying", "Town Planning");
     ObservableList<ProductSearchModel> productSearchModelObservableList = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle resource){
+       // comboBox_id.setItems(list);
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
@@ -95,16 +95,21 @@ public class ProductSearchController implements Initializable {
 
 
 
-    public void SwitchToRegistered(ActionEvent event) throws IOException {
-        String name = "productsearch.fxml";
 
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(name)));
-//        FXMLLoader fxmlLoader = new FXMLLoader(studentRegistrationForm.class.getResource("Login.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+
+
+    public void Back_to_admin(ActionEvent event) throws IOException{
+
+
+
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AdminDashboard.fxml")));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        // FXMLLoader fxmlLoader = new FXMLLoader(studentRegistrationForm.class.getResource("productsearch.fxml"));
+        Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
+
 
     public void add_student(javafx.scene.input.MouseEvent mouseEvent) {//given  a user id, dep_id, cycle_id and user type
         DatabaseConnection connectNow = new DatabaseConnection();
@@ -112,10 +117,11 @@ public class ProductSearchController implements Initializable {
         try{
             ProductSearchModel one_stud = productTableView.getSelectionModel().getSelectedItem();
 
+
                 Integer stud_id = one_stud.getStudent_id();
                 String stud_email = one_stud.getStudent_email();
                 String name = one_stud.getStudent_name();
-                change_name.setText(name);
+               // change_name.setText(name);
                 String add_student_query = "INSERT INTO users( user_id, typ, email) VALUES (?,?,?)";
                 String change_reg_status = "UPDATE student SET registered = ? WHERE stu_id = ?";
 
