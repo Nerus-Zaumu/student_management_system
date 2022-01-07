@@ -14,6 +14,11 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxListCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+//import org.w3c.dom.Document;
+import com.itextpdf.text.Document;
+
+
+
 import org.w3c.dom.events.MouseEvent;
 
 
@@ -27,7 +32,6 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 public class studentRegistrationController {
 
 
@@ -128,6 +132,8 @@ public class studentRegistrationController {
         String user_name = " ";
         boolean failure = true;
 
+
+
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3308/institution_database", "root", "willywillywils");
@@ -141,7 +147,6 @@ public class studentRegistrationController {
          String fname = rs.getString("f_name");
          String lname = rs.getString("l_name");
          user_name = fname + " " +lname;
-
      }
 
 
@@ -154,12 +159,14 @@ public class studentRegistrationController {
 
 
 
+
         System.out.println(user_name);
         return user_name;
 
     }
 
         public int get_type() {
+//        Document doc = new Document();
         int u;
 
         if (type_id.getText().equals("Admin Login")) {
@@ -213,6 +220,7 @@ public class studentRegistrationController {
         stage.show();
 
     }
+
 
     public void SwitchToLogin(ActionEvent event) throws IOException {
         String name = "Login.fxml";

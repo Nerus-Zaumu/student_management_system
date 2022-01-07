@@ -7,6 +7,7 @@ module school.studentmanagementsystem {
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
     requires mysql.connector.java;
+    requires itextpdf;
 
     opens school.studentmanagementsystem to javafx.fxml;
     exports school.studentmanagementsystem;
