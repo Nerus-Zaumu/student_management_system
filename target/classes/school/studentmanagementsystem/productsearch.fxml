@@ -8,7 +8,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="503.0" prefWidth="567.0" styleClass="background" stylesheets="@LoginStyles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="school.studentmanagementsystem.ProductSearchController">
     <children>
-        <TableView fx:id="productTableView" editable="true" layoutY="30.0" onMouseClicked="#add_student" prefHeight="417.0" prefWidth="546.0" styleClass="background">
+        <TableView fx:id="productTableView" editable="true" layoutX="8.0" layoutY="30.0" onMouseClicked="#add_student" prefHeight="417.0" prefWidth="546.0" styleClass="background">
             <columns>
                 <TableColumn fx:id="ID_id" prefWidth="75.0" text="Student ID" />
                 <TableColumn fx:id="name_id" prefWidth="175.0" text="Student Name" />
@@ -16,7 +16,9 @@
                 <TableColumn fx:id="qualification_id" prefWidth="164.0" text="Qualification" />
             </columns>
         </TableView>
-      <ComboBox fx:id="comboBox_id" layoutX="198.0" layoutY="453.0" prefHeight="25.0" prefWidth="130.0" promptText="Add student" />
-      <Button layoutX="14.0" layoutY="2.0" mnemonicParsing="false" onAction="#Back_to_admin" styleClass="sub_items" stylesheets="@studentDashboardStyles.css" text="Button" />
+      <ComboBox fx:id="comboBox_id" layoutX="213.0" layoutY="474.0" prefHeight="25.0" prefWidth="130.0" promptText="Add to 2nd Cycle" />
+      <Button layoutX="14.0" layoutY="2.0" mnemonicParsing="false" onAction="#Back_to_admin" styleClass="sub_items" stylesheets="@studentDashboardStyles.css" text="Back to dashboard" />
+      <ComboBox fx:id="comboBox_id1" layoutX="56.0" layoutY="474.0" prefHeight="25.0" prefWidth="130.0" promptText="Add to 1st Cycle" />
+      <ComboBox fx:id="comboBox_id2" layoutX="372.0" layoutY="475.0" prefHeight="25.0" prefWidth="130.0" promptText="Add to 3rd Cycle" />
    </children>
 </Pane>

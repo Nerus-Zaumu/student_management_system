@@ -2,6 +2,7 @@ package school.studentmanagementsystem;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
@@ -47,11 +48,25 @@ public class ReportsController {
         Document my_pdf_report = new Document();
         PdfWriter.getInstance(my_pdf_report, new FileOutputStream("pdf_report_from_sql_using_java.pdf"));
         my_pdf_report.open();
+
+        String paragraph = "FIRST REPORT\n";
+        Paragraph para_obj = new Paragraph(paragraph);
+        my_pdf_report.add(para_obj);
         //we have four columns in our table
         PdfPTable my_report_table = new PdfPTable(4);
         //create a cell object
         PdfPCell table_cell;
+        table_cell=new PdfPCell(new Phrase("f_name"));
 
+        my_report_table.addCell(table_cell);
+        table_cell=new PdfPCell(new Phrase("l_name"));
+        my_report_table.addCell(table_cell);
+
+        table_cell=new PdfPCell(new Phrase("Sex"));
+        my_report_table.addCell(table_cell);
+
+        table_cell=new PdfPCell(new Phrase("Qualification"));
+        my_report_table.addCell(table_cell);
         while (queryOutput.next()) {
             String dept_id = queryOutput.getString("f_name");
             table_cell=new PdfPCell(new Phrase(dept_id));

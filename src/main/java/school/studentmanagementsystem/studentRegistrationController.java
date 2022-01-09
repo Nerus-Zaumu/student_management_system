@@ -67,9 +67,9 @@ public class studentRegistrationController {
 //    ObservableList<String> divisionLoad = FXCollections.observableArrayList(divisions);
 //
     //@Override
-   // public void initialize(URL url, ResourceBundle resourceBundle){
-      //  pref_dep_id.setItems(pr_dep);
-
+//   public void initialize(URL url, ResourceBundle resourceBundle){
+//       pref_dep_id.setItems(pr_dep);
+//}
 //        country.setItems(countryLoad);
 //        region.setItems(regionLoad);
 //        division.setItems(divisionLoad);
@@ -151,7 +151,7 @@ public class studentRegistrationController {
 
 
 
-
+con.close();
         } catch (Exception ee) {
             System.out.println("soo soo baaaaaaaad");
             System.out.println(ee);
@@ -260,26 +260,26 @@ public class studentRegistrationController {
 
 
             while (rs.next() && failure) {
-                System.out.println(rs.getString("email"));
+                //System.out.println(rs.getString("email"));
 
                 String name = rs.getString("email");
                 String ppd = rs.getString("passwords");
                 String typ = rs.getString("typ");
-                System.out.println(name + " " + ppd + " " + typ + "     " + userText + " " + type + " " + pwdText + "\n");
+                //System.out.println(name + " " + ppd + " " + typ + "     " + userText + " " + type + " " + pwdText + "\n");
 
                 if (name.equals(userText) && pwdText.equals(ppd) && type.equals(typ)) {
                     failure = false;
-                    u.setAlertType(Alert.AlertType.CONFIRMATION);
-                    u.setContentText("Successful Login");
-                    u.show();
-                } else {
-                    if (name.equals(userText)) {
-                        u.setAlertType(Alert.AlertType.ERROR);
-                        u.setContentText("Failure");
-                        u.show();
-                    }
+                    System.out.println("This works");
 
                 }
+            }
+            if(failure) {
+                System.out.println("this still works");
+                u.setAlertType(Alert.AlertType.ERROR);
+                u.setContentText("Wrong Sign in Details");
+                u.show();
+
+
             }
 
         } catch (Exception ee) {
@@ -401,8 +401,7 @@ public class studentRegistrationController {
 
 
             System.out.println("successfll registration");
-
-
+            con_student.close();
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("An exception was caught");
@@ -458,9 +457,9 @@ public class studentRegistrationController {
                         update_users.setString(1, pas);
                         int uvw = update_users.executeUpdate();
 
-                        u.setAlertType(Alert.AlertType.CONFIRMATION);
-                        u.setContentText("successfull!!!");
-                        u.show();
+//                        u.setAlertType(Alert.AlertType.CONFIRMATION);
+//                        u.setContentText("successfull!!!");
+//                        u.show();
                         failure = false;
 
                     }

@@ -48,14 +48,17 @@ public class ProductSearchController implements Initializable {
     @FXML
     private Scene scene;
     @FXML
-    public ComboBox<String> comboBox_id;
+    public ComboBox<String> comboBox_id, comboBox_id1, comboBox_id2;
+
 
     ObservableList<String> list = FXCollections.observableArrayList("Civil Engineering", "Rural Engineering", "Land Surveying", "Town Planning");
     ObservableList<ProductSearchModel> productSearchModelObservableList = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle resource){
-       // comboBox_id.setItems(list);
+        comboBox_id.setItems(list);
+        comboBox_id1.setItems(list);
+        comboBox_id2.setItems(list);
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
@@ -111,10 +114,11 @@ public class ProductSearchController implements Initializable {
     }
 
 
-    public void add_student(javafx.scene.input.MouseEvent mouseEvent) {//given  a user id, dep_id, cycle_id and user type
+    public void add_student(ActionEvent event) {//given  a user id, dep_id, cycle_id and user type
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
         try{
+            productTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
             ProductSearchModel one_stud = productTableView.getSelectionModel().getSelectedItem();
 
 
@@ -137,7 +141,7 @@ public class ProductSearchController implements Initializable {
                     insert.setString(3, stud_email);
                     int ppp = insert.executeUpdate();
                     int uuu = statement.executeUpdate();
-                    productTableView.getItems().removeAll(productTableView.getSelectionModel().getSelectedItem());
+                 //   productTableView.getItems().removeAll(productTableView.getSelectionModel().getSelectedItem());
 
 
                 } catch (SQLException e) {
