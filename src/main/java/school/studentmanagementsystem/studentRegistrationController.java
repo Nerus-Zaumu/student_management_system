@@ -92,7 +92,7 @@ public class studentRegistrationController {
     @FXML
     private TextField password2_id;
     @FXML
-    private static TextField email2_id;
+    private  TextField email2_id;
     @FXML
     private TextField l_name_id;
     @FXML
@@ -362,6 +362,8 @@ con.close();
 
         try {
             System.out.println("how are you today");
+            Long datetime = System.currentTimeMillis();
+            Timestamp time = new Timestamp(datetime);
             PreparedStatement insert = con_student.prepareStatement(addStAcc);
 
 
@@ -376,10 +378,11 @@ con.close();
             insert.setString(9, mothers_name);
             insert.setString(10, fathers_name);
             insert.setString(11, division);
-            insert.setDate(12, Date.valueOf(myDate));
+            insert.setTimestamp(12, time);
             insert.setString(13, m_address);
             insert.setString(14, f_address);
             insert.setString(15, dp_id);
+
 
             int uuuu = insert.executeUpdate();
 
@@ -457,12 +460,24 @@ con.close();
                         update_users.setString(1, pas);
                         int uvw = update_users.executeUpdate();
 
-//                        u.setAlertType(Alert.AlertType.CONFIRMATION);
-//                        u.setContentText("successfull!!!");
-//                        u.show();
+                        u.setAlertType(Alert.AlertType.CONFIRMATION);
+                       u.setContentText("successfull!!!");
+                        u.show();
+                        matricule_id.setText("");
+                        email2_id.setText("");
+                        password1_id.setText("");
+                        password2_id.setText("");
                         failure = false;
 
+
                     }
+
+
+                }
+                if(failure){
+                    Alert uvw = new Alert(Alert.AlertType.CONFIRMATION);
+                    uvw.setContentText("Your registration is either pending or your Login details are not correct");
+                    uvw.show();
 
 
                 }
@@ -475,7 +490,13 @@ con.close();
 
         }
 
+        else{
+        Alert uvw = new Alert(Alert.AlertType.ERROR);
+        uvw.setContentText("Password Don not match");
+        uvw.show();
 
+
+    }
     }
 
 

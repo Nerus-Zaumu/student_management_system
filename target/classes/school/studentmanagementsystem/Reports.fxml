@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.Blend?>
 <?import javafx.scene.effect.DropShadow?>
@@ -21,17 +20,13 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <ComboBox layoutX="28.0" layoutY="510.0" prefHeight="36.0" prefWidth="167.0" promptText="Choose cycle" styleClass="button-login" stylesheets="@LoginStyles.css" />
-            <ComboBox layoutX="207.0" layoutY="459.0" prefHeight="36.0" prefWidth="167.0" promptText="choose sex" styleClass="button-login" stylesheets="@LoginStyles.css" />
-            <ComboBox layoutX="207.0" layoutY="510.0" prefHeight="36.0" prefWidth="167.0" promptText="choose class" styleClass="button-login" stylesheets="@LoginStyles.css" />
-            <ComboBox layoutX="28.0" layoutY="459.0" prefHeight="36.0" prefWidth="167.0" promptText="choose department" styleClass="button-login" stylesheets="@LoginStyles.css" />
-            <Button layoutX="23.0" layoutY="211.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="156.0" styleClass="button-login" stylesheets="@LoginStyles.css" text="Male Students per Class" />
-            <Button layoutX="23.0" layoutY="122.0" mnemonicParsing="false" onAction="#Registered_Students" prefHeight="44.0" prefWidth="156.0" styleClass="button-login" stylesheets="@LoginStyles.css" text="Registered Students" />
-            <Button layoutX="213.0" layoutY="122.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="156.0" styleClass="button-login" stylesheets="@LoginStyles.css" text=" Students per Class" />
-            <Button layoutX="23.0" layoutY="379.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="156.0" styleClass="button-login" stylesheets="@LoginStyles.css" text="Femal Students per Class" />
-            <Button layoutX="23.0" layoutY="295.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="156.0" styleClass="button-login" stylesheets="@LoginStyles.css" text="Femal Students per Class" />
-            <Button layoutX="213.0" layoutY="295.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="156.0" styleClass="button-login" stylesheets="@LoginStyles.css" text="Femal Students per Class" />
-            <Button layoutX="213.0" layoutY="211.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="156.0" styleClass="button-login" stylesheets="@LoginStyles.css" text="Femal Students per Class" />
+            <Button layoutX="23.0" layoutY="270.0" mnemonicParsing="false" onAction="#male_students_per_class" prefHeight="84.0" prefWidth="156.0" styleClass="button-login" stylesheets="@LoginStyles.css" text="Male Students per Class" />
+            <Button layoutX="23.0" layoutY="122.0" mnemonicParsing="false" onAction="#Registered_Students" prefHeight="84.0" prefWidth="156.0" styleClass="button-login" stylesheets="@LoginStyles.css" text="Registered Students" />
+            <Button layoutX="205.0" layoutY="122.0" mnemonicParsing="false" onAction="#Students_per_Class" prefHeight="84.0" prefWidth="156.0" styleClass="button-login" stylesheets="@LoginStyles.css" text=" Students per Class" />
+            <Button layoutX="115.0" layoutY="557.0" mnemonicParsing="false" onAction="#statisticsOfEnrolment" prefHeight="84.0" prefWidth="156.0" styleClass="button-login" stylesheets="@LoginStyles.css" text="Statistics of Enrollment" />
+            <Button layoutX="23.0" layoutY="424.0" mnemonicParsing="false" onAction="#Studentpercycle" prefHeight="84.0" prefWidth="156.0" styleClass="button-login" stylesheets="@LoginStyles.css" text="Students per Cycle" />
+            <Button layoutX="206.0" layoutY="424.0" mnemonicParsing="false" onAction="#studentperdepartment" prefHeight="84.0" prefWidth="156.0" styleClass="button-login" stylesheets="@LoginStyles.css" text="students per Department" />
+            <Button layoutX="209.0" layoutY="267.0" mnemonicParsing="false" onAction="#femaleStudentsPerClass" prefHeight="84.0" prefWidth="156.0" styleClass="button-login" stylesheets="@LoginStyles.css" text="Femal Students per Class" />
             <Button layoutX="2.0" layoutY="2.0" mnemonicParsing="false" onAction="#Back_to_admin" styleClass="sub_items" stylesheets="@studentDashboardStyles.css" text="Back to Admin Dashboard" />
          </children>
       </Pane>
@@ -40,12 +35,42 @@
             <DropShadow />
          </effect>
          <children>
-            <Label layoutX="138.0" layoutY="52.0" text="Reports">
+            <Label layoutX="109.0" layoutY="52.0" text="Generated Reports">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="18.0" layoutY="223.0" prefHeight="25.0" prefWidth="329.0" text="The generated reports will appear here as files">
+            <Label fx:id="one" layoutX="28.0" layoutY="173.0" onMouseClicked="#openFile1" prefHeight="25.0" prefWidth="329.0">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="two" layoutX="28.0" layoutY="215.0" onMouseClicked="#openFile2" prefHeight="25.0" prefWidth="329.0">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="three" layoutX="28.0" layoutY="256.0" onMouseClicked="#openFile3" prefHeight="25.0" prefWidth="329.0">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="four" layoutX="28.0" layoutY="295.0" onMouseClicked="#openFile4" prefHeight="25.0" prefWidth="329.0">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="five" layoutX="28.0" layoutY="333.0" onMouseClicked="#openFile5" prefHeight="25.0" prefWidth="329.0">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="six" layoutX="28.0" layoutY="375.0" onMouseClicked="#openFile6" prefHeight="25.0" prefWidth="329.0">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="seven" layoutX="28.0" layoutY="415.0" onMouseClicked="#openFile7" prefHeight="25.0" prefWidth="329.0">
                <font>
                   <Font size="12.0" />
                </font>
