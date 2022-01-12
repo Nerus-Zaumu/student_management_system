@@ -9,7 +9,9 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import javafx.application.Application;
 import javafx.application.HostServices;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableArray;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -36,6 +38,9 @@ public class ReportsController extends Application {
     private Parent root;
     @FXML
     private Label one,two,three,four,five,six,seven;
+    ObservableList<String> cycleList = FXCollections.observableArrayList("Basic T.C", " Ordinary T.C", "Higher T.C");
+
+    ObservableList<String> list = FXCollections.observableArrayList("Civil Engineering", "Rural Engineering", "Town Planning", "Land Surveying");
 
     private String Cycle_stats_total, Cycle_stats_male, Cycle_stats_female, Class_stats_total, Class_stats_male, Class_stats_female, Dep_stats_total, Dep_stats_male, Dep_stats_female;
 
@@ -119,9 +124,9 @@ public class ReportsController extends Application {
         Paragraph para_obj = new Paragraph(paragraph);
         my_pdf_report.add(para_obj);
         for(int i=1; i<=3; i++){
-            for(int j=1; j<=4; j++){
 
-                String department_code = j + String.valueOf(i) + "200";
+
+                String department_code = String.valueOf(i);
                 DatabaseConnection connectNow = new DatabaseConnection();
                 Connection connectDB = connectNow.getConnection();
 
@@ -129,7 +134,7 @@ public class ReportsController extends Application {
                         "from student\n" +
                         "join class\n" +
                         "on class.class_id = student.student_class\n" +
-                        "where student.registered is not null and student.mothers_address is not null  and student_class = " + department_code;
+                        "where student.registered is not null and student.mothers_address is not null  and student.dep_id = " + department_code;
 
 
 
@@ -143,7 +148,7 @@ public class ReportsController extends Application {
                 PdfPCell table_cell;
                 System.out.println(queryOutput.toString());
                 if(queryOutput.next()){
-                    String dep_name = "\n\n\n" + queryOutput.getString("class_name").toUpperCase() ;
+                    String dep_name = "\n\n\n" + list.get(Integer.parseInt(department_code)-1).toUpperCase() ;
                     Paragraph para_ob = new Paragraph(dep_name);
                     my_pdf_report.add(para_ob);
 
@@ -204,7 +209,7 @@ public class ReportsController extends Application {
 
             }
 
-        }
+
         my_pdf_report.close();
 
 
@@ -215,53 +220,100 @@ public class ReportsController extends Application {
     public void Studentpercycle(ActionEvent event) throws IOException, SQLException, DocumentException {
 
 
-        DatabaseConnection connectNow = new DatabaseConnection();
-        Connection connectDB = connectNow.getConnection();
-        String productViewQuery = "select f_name, l_name, sex, qualification from student where stu_id > 13 and registered is true";
-
-        Statement statement = connectDB.createStatement();
-        ResultSet queryOutput = statement.executeQuery(productViewQuery);
-        /* Step-2: Initialize PDF documents - logical objects */
-        /* Step-2: Initialize PDF documents - logical objects */
         Document my_pdf_report = new Document();
         PdfWriter.getInstance(my_pdf_report, new FileOutputStream("Studentpercycle.pdf"));
-        my_pdf_report.open();
 
-        String paragraph = "FIRST REPORT\n";
+        my_pdf_report.open();
+        String paragraph = "                                 \n                      LIST OF STUDENTS PER CYCLE" ;
         Paragraph para_obj = new Paragraph(paragraph);
         my_pdf_report.add(para_obj);
-        //we have four columns in our table
-        PdfPTable my_report_table = new PdfPTable(4);
-        //create a cell object
-        PdfPCell table_cell;
-        table_cell=new PdfPCell(new Phrase("f_name"));
+        for(int i=1; i<=3; i++){
 
-        my_report_table.addCell(table_cell);
-        table_cell=new PdfPCell(new Phrase("l_name"));
-        my_report_table.addCell(table_cell);
 
-        table_cell=new PdfPCell(new Phrase("Sex"));
-        my_report_table.addCell(table_cell);
+            String department_code = String.valueOf(i);
+            DatabaseConnection connectNow = new DatabaseConnection();
+            Connection connectDB = connectNow.getConnection();
 
-        table_cell=new PdfPCell(new Phrase("Qualification"));
-        my_report_table.addCell(table_cell);
-        while (queryOutput.next()) {
-            String dept_id = queryOutput.getString("f_name");
-            table_cell=new PdfPCell(new Phrase(dept_id));
+            String productViewQuery = "select  student.l_name, student.f_name, student.sex, class.class_id as Class_Atribute, class.class_name  \n" +
+                    "from student\n" +
+                    "join class\n" +
+                    "on class.class_id = student.student_class\n" +
+                    "where student.registered is not null and student.mothers_address is not null  and student.cycle_id = " + department_code;
 
-            my_report_table.addCell(table_cell);
-            String dept_name=queryOutput.getString("l_name");
-            table_cell=new PdfPCell(new Phrase(dept_name));
-            my_report_table.addCell(table_cell);
-            String manager_id=queryOutput.getString("sex");
-            table_cell=new PdfPCell(new Phrase(manager_id));
-            my_report_table.addCell(table_cell);
-            String location_id=queryOutput.getString("qualification");
-            table_cell=new PdfPCell(new Phrase(location_id));
-            my_report_table.addCell(table_cell);
+
+
+
+            Statement statement = connectDB.createStatement();
+            ResultSet queryOutput = statement.executeQuery(productViewQuery);
+            /* Step-2: Initialize PDF documents - logical objects */
+            /* Step-2: Initialize PDF documents - logical objects */
+            //we have four columns in our table
+            PdfPTable my_report_table = new PdfPTable(4);
+            PdfPCell table_cell;
+            System.out.println(queryOutput.toString());
+            if(queryOutput.next()){
+                String dep_name = "\n\n\n" + cycleList.get(Integer.parseInt(department_code)-1).toUpperCase() ;
+                Paragraph para_ob = new Paragraph(dep_name);
+                my_pdf_report.add(para_ob);
+
+                //create a cell object
+
+                table_cell=new PdfPCell(new Phrase("No"));
+
+                my_report_table.addCell(table_cell);
+                table_cell=new PdfPCell(new Phrase("Name"));
+                my_report_table.addCell(table_cell);
+
+                table_cell=new PdfPCell(new Phrase("Sex"));
+                my_report_table.addCell(table_cell);
+
+                table_cell=new PdfPCell(new Phrase("Class code"));
+                my_report_table.addCell(table_cell);
+            }
+
+
+
+
+            int no=0;
+            try{
+                String l_na = queryOutput.getString("l_name");
+                do {
+                    Paragraph para_ob = new Paragraph(" \n");
+                    my_pdf_report.add(para_ob);
+                    no = no + 1;
+                    String num = String.valueOf(no);
+                    table_cell=new PdfPCell(new Phrase(num));
+                    my_report_table.addCell(table_cell);
+
+                    String name = queryOutput.getString("f_name") +" "+ queryOutput.getString("l_name");
+                    table_cell=new PdfPCell(new Phrase(name));
+
+
+
+                    my_report_table.addCell(table_cell);
+                    String manager_id=queryOutput.getString("sex");
+                    table_cell=new PdfPCell(new Phrase(manager_id));
+                    my_report_table.addCell(table_cell);
+                    String location_id=queryOutput.getString("Class_Atribute");
+                    table_cell=new PdfPCell(new Phrase(location_id));
+                    my_report_table.addCell(table_cell);
+
+                    System.out.println(no);
+                } while (queryOutput.next());
+            }
+            catch (SQLException uu){
+
+            }
+
+
+            /* Attach report table to PDF */
+            my_pdf_report.add(my_report_table);
+
+
+
         }
-        /* Attach report table to PDF */
-        my_pdf_report.add(my_report_table);
+
+
         my_pdf_report.close();
 
 

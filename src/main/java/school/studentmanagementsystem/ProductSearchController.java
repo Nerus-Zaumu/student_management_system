@@ -195,7 +195,7 @@ public class ProductSearchController implements Initializable {
 
                             insert.setInt(1, stud_id);
                             insert.setString(2, "Stud");
-                            insert.setString(3, stud_email);
+                           insert.setString(3, stud_email);
 
                             enroll.setInt(1, Integer.parseInt(student_class));
                             enroll.setInt(2, stud_id);
@@ -206,7 +206,7 @@ public class ProductSearchController implements Initializable {
 
 
 
-                            int ppp = insert.executeUpdate();
+                           // int ppp = insert.executeUpdate();
                             int uuu = statement.executeUpdate();
                             int vvv = enroll.executeUpdate();
                             //int fff = adToClas.executeUpdate();
