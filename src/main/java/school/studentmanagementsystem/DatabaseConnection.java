@@ -10,7 +10,8 @@ public class DatabaseConnection {
         String databaseUser = "root";
         String databaseName = "institution_database";
         String databasePassword = "willywillywils";
-        String url = "jdbc:mysql://localhost:3308/" + databaseName;
+        String database_port = "3308";
+        String url = "jdbc:mysql://localhost:"+database_port+ "/" + databaseName;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             databaselink = DriverManager.getConnection(url, databaseUser, databasePassword);

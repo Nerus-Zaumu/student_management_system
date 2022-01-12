@@ -10,11 +10,9 @@ import java.io.IOException;
 public class studentRegistrationForm extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(studentRegistrationForm.class.getResource("Login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(studentRegistrationForm.class.getResource("Cycles.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Registration Form");
-        stage.setMaximized(true);
-        stage.setFullScreen(true);
         stage.setScene(scene);
         stage.show();
     }

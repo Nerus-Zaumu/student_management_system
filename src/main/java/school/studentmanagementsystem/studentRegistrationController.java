@@ -135,8 +135,8 @@ public class studentRegistrationController {
 
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3308/institution_database", "root", "willywillywils");
+            DatabaseConnection connectNow = new DatabaseConnection();
+            Connection con = connectNow.getConnection();
             PreparedStatement pst = con.prepareStatement("select * from student where mothers_address = ?");
             pst.setString(1, email_id.getText());
             ResultSet rs = pst.executeQuery();
@@ -200,6 +200,39 @@ con.close();
         }
 
     }
+    public void switchToNotifications(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("sendNotification.fxml")));
+//        FXMLLoader fxmlLoader = new FXMLLoader(studentRegistrationForm.class.getResource("Signup.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void switchToStudentDistribution(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("StudentDistribution.fxml")));
+//        FXMLLoader fxmlLoader = new FXMLLoader(studentRegistrationForm.class.getResource("Signup.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void switchToCrimes(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CrimeRecords.fxml")));
+//        FXMLLoader fxmlLoader = new FXMLLoader(studentRegistrationForm.class.getResource("Signup.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void switchToDeleteStudent(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Cycles.fxml")));
+   //           FXMLLoader fxmlLoader = new FXMLLoader(studentRegistrationForm.class.getResource("studentRegistration-view.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     public void SwitchToReports(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Reports.fxml")));
 //        FXMLLoader fxmlLoader = new FXMLLoader(studentRegistrationForm.class.getResource("studentRegistration-view.fxml"));
@@ -253,8 +286,8 @@ con.close();
         String pwdText = password_id.getText();
         boolean failure = true;
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3308/institution_database", "root", "willywillywils");
+            DatabaseConnection connectNow = new DatabaseConnection();
+            Connection con = connectNow.getConnection();
             PreparedStatement pst = con.prepareStatement("select * from users where email is not null");
             ResultSet rs = pst.executeQuery();
 
@@ -441,8 +474,8 @@ con.close();
 
 
             try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3308/institution_database", "root", "willywillywils");
+                DatabaseConnection connectNow = new DatabaseConnection();
+                Connection con = connectNow.getConnection();
                 PreparedStatement pst = con.prepareStatement("select * from users");
                 PreparedStatement update_users = con.prepareStatement("UPDATE users SET passwords = ? WHERE user_id = ?");
                 ResultSet rs = pst.executeQuery();

@@ -51,22 +51,26 @@
                   </Pane>
                   <Pane layoutX="53.0" layoutY="382.0" prefHeight="153.0" prefWidth="153.0" styleClass="card">
                      <children>
-                        <Label layoutX="55.0" layoutY="69.0" styleClass="card-label" text="Cycles" />
+                        <Label layoutX="31.0" layoutY="77.0" styleClass="card-label" text="Delete student" />
+                        <Button layoutX="31.0" layoutY="23.0" mnemonicParsing="false" onAction="#switchToDeleteStudent" prefHeight="25.0" prefWidth="73.0" styleClass="sub_items" stylesheets="@studentDashboardStyles.css" text="Delete" />
                      </children>
                   </Pane>
                   <Pane layoutX="526.0" layoutY="383.0" prefHeight="155.0" prefWidth="153.0" styleClass="card">
                      <children>
                         <Label layoutX="18.0" layoutY="70.0" styleClass="card-label" text="Send Notification" />
+                        <Button layoutX="38.0" layoutY="15.0" mnemonicParsing="false" onAction="#switchToNotifications" prefHeight="25.0" prefWidth="73.0" styleClass="sub_items" stylesheets="@studentDashboardStyles.css" text="Notify" />
                      </children>
                   </Pane>
                   <Pane layoutX="291.0" layoutY="168.0" prefHeight="153.0" prefWidth="153.0" styleClass="card">
                      <children>
-                        <Label layoutX="7.0" layoutY="59.0" styleClass="card-label" text="Student distribution" />
+                        <Label layoutX="17.0" layoutY="59.0" styleClass="card-label" text="Student distribution" />
+                        <Button layoutX="33.0" layoutY="15.0" mnemonicParsing="false" onAction="#switchToStudentDistribution" prefHeight="25.0" prefWidth="86.0" styleClass="sub_items" stylesheets="@studentDashboardStyles.css" text="Distribution" />
                      </children>
                   </Pane>
                   <Pane layoutX="291.0" layoutY="384.0" prefHeight="153.0" prefWidth="153.0" styleClass="card">
                      <children>
                         <Label layoutX="31.0" layoutY="69.0" styleClass="card-label" text="Crime records" />
+                        <Button layoutX="35.0" layoutY="17.0" mnemonicParsing="false" onAction="#switchToCrimes" prefHeight="25.0" prefWidth="73.0" styleClass="sub_items" stylesheets="@studentDashboardStyles.css" text="Add crime" />
                      </children>
                   </Pane>
                   <Pane layoutX="526.0" layoutY="167.0" prefHeight="155.0" prefWidth="153.0" styleClass="card">
@@ -76,6 +80,7 @@
                      </children>
                   </Pane>
                   <Line endX="86.0" layoutX="140.0" layoutY="124.0" startX="-108.0" styleClass="lines" />
+                  <Button layoutX="25.0" layoutY="29.0" mnemonicParsing="false" onAction="#SwitchToLogin" prefHeight="25.0" prefWidth="73.0" styleClass="sub_items" stylesheets="@studentDashboardStyles.css" text="Go back" />
                </children>
             </Pane>
             <Label layoutX="285.0" layoutY="3.0" styleClass="card-headings" text="Student Management">
